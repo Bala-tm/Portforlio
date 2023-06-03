@@ -2,11 +2,10 @@ export const Add_List = 'Add_List';
 export const Toggle_List = 'Toggle_List';
 export const Remove_List = 'Remove_List';
 
-export const addTodo = (text,title) => ({
+export const addTodo = (text) => ({
     type: Add_List,
     payload: {
-      text,
-      title
+      text 
     },
   });
   

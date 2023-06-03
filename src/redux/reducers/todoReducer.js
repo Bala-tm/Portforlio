@@ -10,7 +10,7 @@ const todoReducer = (state = initialState, action) => {console.log("action.paylo
         {
           id: Date.now(),
           text: action.payload.text,
-          title: action.payload.title,
+          
 
           completed: false,
         },
