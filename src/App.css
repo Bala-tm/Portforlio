@@ -11,7 +11,12 @@ body{
   margin-left: auto;
   background: white;
   margin-top: 100px;
+}
+
+.flow-div{
   overflow: auto;
+
+  height: 35vh;
 }
 @media (min-width:576px){
   .container{
@@ -67,10 +72,8 @@ ul li {
   background-color: #f2f2f2;
   color: #721c24;
   border: 1px solid #f2f2f2;
-  border-radius: 4px;
   position: relative;
 }
-
 .close-btn {
   position: absolute;
   top: -18px;
@@ -94,19 +97,68 @@ height:100vh
 
 
 .inputtodo {
-  padding: 12px 5px;
+  padding: 12px 0px;
+  
   background-color: #ffffff;
   color: #000100;
-  border: 1px solid gray;
+  border: 0.5px solid lightgray;
   border-radius: 4px;
-   width: 80%;
+  width: 100%;
 }
+ 
+
 .plusbtn{
 
      padding: 12px;
+     padding-left: 5px;
     background: #8e49e8;
     color: #ffffff;
     font-size: 12px;
     border-radius: 4px;
 
  }
+ form {
+  position: relative;
+  display: inline-block;
+   width: 100%;
+}
+
+form .plusbtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 41px;
+  padding: 5px 10px;
+  border: #8e49e8;
+}
+.inputtodo:focus {
+  outline: none;
+}
+
+.clear-all {
+  float: right;
+  height: 40px;
+  background-color: #e74d3d;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -45px;
+}
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bb95ec;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8e49e8;
+}

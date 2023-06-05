@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, removeTodo } from '../redux/actions/ToDoAction';
+import { addTodo, toggleTodo, removeTodo,clearAll } from '../redux/actions/ToDoAction';
 import { PlusOutlined ,DeleteFilled} from '@ant-design/icons';
 
-const ToDoList = ({ todos, addTodo, toggleTodo, removeTodo }) => {
+const ToDoList = ({ todos, addTodo, toggleTodo, removeTodo ,clearAll}) => {
    const [text, setText] = useState('');
    const [Pendinglength, setPendinglength] = useState(0);
    const [width, setWindowWidth] = React.useState(0);
@@ -59,6 +59,11 @@ if(!e.completed){
   const handleRemove = (id) => {
     removeTodo(id);
   };
+  const Delete_all = () => {
+    setText('');
+
+    clearAll('');
+  };
 
   return (
     <div className='tododiv'>
@@ -73,6 +78,7 @@ if(!e.completed){
        
       height: '65vh'}}
       >
+
       <h1 >Todo App</h1>
       <form  onSubmit={handleFormSubmit}>
       
@@ -80,15 +86,17 @@ if(!e.completed){
       
         <input
           type="text"
-          placeholder="Enter a new todo"
+          placeholder=" Drop a Task"
           value={text}
           onChange={handleInputChange}
-          className='inputtodo'
+          className='inputtodo '
         />
-&nbsp;
-        
+         
         <button type="submit"   className="plusbtn"><PlusOutlined/></button>
       </form> 
+     
+      <div className="flow-div">
+
       <div   style={{
         
         // width: "30rem",
@@ -149,16 +157,20 @@ if(!e.completed){
       </ul>
       
       
-    {Pendinglength > 0 ?
+    
+      </div>
+</div>
+
+{Pendinglength > 0 ?
      <p>you have {Pendinglength} pending  {Pendinglength > 1?"tasks":"task"}  </p>
     
     :null}  
-     
-      </div>
-
+     {todos.length > 0 ?
+             <button  onClick={()=>Delete_all()}  className="clear-all">Clear all</button>
+             :null}
 
 </div>
-</div>
+</div> 
     </div>
   );
 };
@@ -175,6 +187,7 @@ const mapDispatchToProps = {
   addTodo,
   toggleTodo,
   removeTodo,
+  clearAll
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

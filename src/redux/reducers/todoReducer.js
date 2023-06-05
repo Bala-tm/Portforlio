@@ -1,4 +1,4 @@
-import { Add_List, Toggle_List, Remove_List } from '../actions/ToDoAction';
+import { Add_List, Toggle_List, Remove_List,clear_All } from '../actions/ToDoAction';
 
 const initialState = [];
 const todoReducer = (state = initialState, action) => {console.log("action.payload",action.payload);
@@ -24,6 +24,10 @@ const todoReducer = (state = initialState, action) => {console.log("action.paylo
       ); 
     case Remove_List:
       return state.filter((todo) => todo.id !== action.payload.id);
+
+      case clear_All:
+        return   [];
+  
 
     default:
       return state;
